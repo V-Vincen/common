@@ -1,0 +1,33 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /boot
+
+logging:
+  level.org.springframework.web: DEBUG
+  file:
+    name: logs/spring-boot-log.log
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem/test
+    username: root
+    password: tem123
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-wait: -1
+        max-idle: 100
+        min-idle: 8
+
+mybatis:
+  type-aliases-package: com.tem.integration.dto
+  mapper-locations: classpath:mapper/*.xml
+
